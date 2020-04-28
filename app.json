@@ -1,0 +1,79 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/catalog/catalog",
+    "pages/ucenter/index/index",
+    "pages/ucenter/address/address",
+    "pages/ucenter/addressAdd/addressAdd",
+    "pages/ucenter/feedback/feedback",
+    "pages/ucenter/footprint/footprint",
+    "pages/ucenter/order/order",
+    "pages/ucenter/orderDetail/orderDetail",
+    "pages/ucenter/couponList/couponList",
+    "pages/ucenter/couponSelect/couponSelect",
+    "pages/ucenter/collect/collect",
+    "pages/cart/cart",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "navigationBarBackgroundColor": "#1cbbb4",
+    "navigationBarTitleText": "tinymall小程序商城",
+    "enablePullDownRefresh": false,
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#FFFFFF",
+    "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "backgroundColor": "#fafafa",
+    "borderStyle": "white",
+    "selectedColor": "#AB956D",
+    "color": "#666",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/images/home.png",
+        "selectedIconPath": "static/images/home@selected.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/catalog/catalog",
+        "iconPath": "static/images/category.png",
+        "selectedIconPath": "static/images/category@selected.png",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "iconPath": "static/images/cart.png",
+        "selectedIconPath": "static/images/cart@selected.png",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/ucenter/index/index",
+        "iconPath": "static/images/my.png",
+        "selectedIconPath": "static/images/my@selected.png",
+        "text": "个人"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "usingComponents": {
+    "van-cell": "./lib/vant-weapp/cell/index",
+    "van-cell-group": "./lib/vant-weapp/cell-group/index",
+    "van-picker": "./lib/vant-weapp/picker/index",
+    "van-popup": "./lib/vant-weapp/popup/index",
+    "van-field": "./lib/vant-weapp/field/index",
+    "van-uploader": "./lib/vant-weapp/uploader/index",
+    "van-button": "./lib/vant-weapp/button/index",
+    "van-tag": "./lib/vant-weapp/tag/index",
+    "van-icon": "./lib/vant-weapp/icon/index",
+    "van-checkbox": "./lib/vant-weapp/checkbox/index",
+    "van-steps": "./lib/vant-weapp/steps/index"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

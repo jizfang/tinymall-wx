@@ -52,8 +52,7 @@ Page({
                 'content-type': 'application/json'
             },
             success: function (res) {
-              console.log(res.data)
-                if (res.data.status ==200) {
+                if (res.data.code ==200) {
                     that.setData({
                         loginErrorCount: 0
                     });

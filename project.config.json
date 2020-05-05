@@ -25,7 +25,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.10.4",
 	"appid": "wx719a4eb09e4d19ac",
-	"projectname": "tinymall",
+	"projectname": "tinymall-wx",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

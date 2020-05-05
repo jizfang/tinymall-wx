@@ -5,8 +5,8 @@ Page({
   data: {
     orderList: [],
     showType: 0,
-    page: 1,
-    limit: 10,
+    pageNum: 1,
+    pageSize: 10,
     totalPages: 1
   },
   onLoad: function(options) {
@@ -24,11 +24,13 @@ Page({
   getOrderList() {
     let that = this;
     util.request(api.OrderList, {
-      showType: that.data.showType,
-      page: that.data.page,
-      limit: that.data.limit
+      condition:{
+        showType: that.data.showType
+      },
+      pageNum: that.data.pageNum,
+      pageSize: that.data.pageSize
     }).then(function(res) {
-      if (res.errno === 0) {
+      if (res.code === 200) {
         console.log(res.data);
         that.setData({
           orderList: that.data.orderList.concat(res.data.list),

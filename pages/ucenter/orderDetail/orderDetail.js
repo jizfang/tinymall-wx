@@ -42,7 +42,7 @@ Page({
     util.request(api.OrderDetail, {
       orderId: that.data.orderId
     }).then(function(res) {
-      if (res.errno === 0) {
+      if (res.code === 200) {
         console.log(res.data);
         that.setData({
           orderInfo: res.data.orderInfo,

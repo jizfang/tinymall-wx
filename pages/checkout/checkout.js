@@ -144,7 +144,8 @@ Page({
       grouponRulesId: this.data.grouponRulesId,
       grouponLinkId: this.data.grouponLinkId
     }, 'POST').then(res => {
-      if (res.errno === 0) {
+      console.log(res)
+      if (res.code === 200) {
 
         // 下单成功，重置couponId
         try {
@@ -158,7 +159,7 @@ Page({
         util.request(api.OrderPrepay, {
           orderId: orderId
         }, 'POST').then(function(res) {
-          if (res.errno === 0) {
+          if (res.code === 200) {
             const payParam = res.data;
             console.log("支付过程开始");
             wx.requestPayment({

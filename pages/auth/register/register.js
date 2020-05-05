@@ -7,8 +7,7 @@ Page({
         username: '',
         password: '',
         confirmPassword: '',
-        mobile: '',
-        code: ''
+        mobile: ''
     },
     onLoad: function (options) {
         // 页面初始化 options为页面跳转所带来的参数
@@ -50,50 +49,24 @@ Page({
             });
             return false;
         }
-
-        wx.request({
-            url: api.AuthRegisterCaptcha,
-            data: {
-                mobile: that.data.mobile
-            },
-            method: 'POST',
-            header: {
-                'content-type': 'application/json'
-            },
-            success: function (res) {
-                if (res.data.errno == 0) {
-                    wx.showModal({
-                        title: '发送成功',
-                        content: '验证码已发送',
-                        showCancel: false
-                    });
-                } else {
-                    wx.showModal({
-                        title: '错误信息',
-                        content: res.data.errmsg,
-                        showCancel: false
-                    });
-                }
-            }
-        });
     },
     requestRegister: function (wxCode) {
         let that = this;
         wx.request({
             url: api.AuthRegister,
             data: {
-                username: that.data.username,
-                password: that.data.password,
-                mobile: that.data.mobile,
-                code: that.data.code,
-                wxCode: wxCode
+              username: that.data.username,
+              password: that.data.password,
+              mobile: that.data.mobile,
+              wxCode: wxCode
             },
             method: 'POST',
             header: {
                 'content-type': 'application/json'
             },
             success: function (res) {
-                if (res.data.errno == 0) {
+                console.log(res)
+                if (res.data.code == 200) {
                     app.globalData.hasLogin = true;
                     wx.setStorageSync('userInfo', res.data.data.userInfo);
                     wx.setStorage({
@@ -117,7 +90,6 @@ Page({
     },
     startRegister: function () {
         var that = this;
-
         if (this.data.password.length < 6 || this.data.username.length < 6) {
             wx.showModal({
                 title: '错误信息',
@@ -136,10 +108,10 @@ Page({
             return false;
         }
 
-        if (this.data.mobile.length == 0 || this.data.code.length == 0) {
+        if (this.data.mobile.length == 0) {
             wx.showModal({
                 title: '错误信息',
-                content: '手机号和验证码不能为空',
+                content: '手机号不能为空',
                 showCancel: false
             });
             return false;
@@ -218,11 +190,6 @@ Page({
             case 'clear-mobile':
                 this.setData({
                     mobile: ''
-                });
-                break;
-            case 'clear-code':
-                this.setData({
-                    code: ''
                 });
                 break;
         }

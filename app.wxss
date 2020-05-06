@@ -1,6 +1,5 @@
 /**app.wxss**/
-@import "colorui/main.wxss";
-@import "colorui/icon.wxss";
+@import "/lib/vant-weapp/common/index.wxss";
 
 .container {
   box-sizing: border-box;

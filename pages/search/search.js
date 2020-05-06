@@ -26,7 +26,7 @@ Page({
   },
   clearKeyword: function() {
     this.setData({
-      keyword: '',
+      condition:{keyword: ''},
       searchStatus: false
     });
   },
@@ -38,7 +38,7 @@ Page({
   getSearchKeyword() {
     let that = this;
     util.request(api.SearchIndex).then(function(res) {
-      if (res.errno === 0) {
+      if (res.code == 200) {
         that.setData({
           historyKeyword: res.data.historyKeywordList,
           defaultKeyword: res.data.defaultKeyword,
@@ -50,7 +50,7 @@ Page({
 
   inputChange: function(e) {
     this.setData({
-      keyword: e.detail.value,
+      condition:{keyword: e.detail.value},
       searchStatus: false
     });
 
@@ -61,7 +61,7 @@ Page({
   getHelpKeyword: function() {
     let that = this;
     util.request(api.SearchHelper, {
-      keyword: that.data.keyword
+      keyword: that.data.condition.keyword
     }).then(function(res) {
       if (res.errno === 0) {
         that.setData({

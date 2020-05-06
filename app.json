@@ -72,7 +72,8 @@
     "van-tag": "./lib/vant-weapp/tag/index",
     "van-icon": "./lib/vant-weapp/icon/index",
     "van-checkbox": "./lib/vant-weapp/checkbox/index",
-    "van-steps": "./lib/vant-weapp/steps/index"
+    "van-steps": "./lib/vant-weapp/steps/index",
+    "van-search": "./lib/vant-weapp/search/index"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

@@ -47,6 +47,7 @@ Page({
         id: id
       })
       .then(function(res) {
+        console.log(res)
         that.setData({
           currentCategory: res.data.currentCategory,
           currentSubCategoryList: res.data.currentSubCategory

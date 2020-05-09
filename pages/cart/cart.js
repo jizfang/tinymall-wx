@@ -55,7 +55,7 @@ Page({
     getCartList: function () {
         let that = this;
         util.request(api.CartList).then(function (res) {
-            if (res.errno === 0) {
+            if (res.code === 200) {
                 that.setData({
                     cartGoods: res.data.cartList,
                     cartTotal: res.data.cartTotal

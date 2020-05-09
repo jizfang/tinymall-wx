@@ -41,7 +41,7 @@ Page({
       })
       .then(function(res) {
 
-        if (res.errno == 0) {
+        if (res.code == 200) {
           that.setData({
             navList: res.data.brotherCategory,
             currentCategory: res.data.currentCategory

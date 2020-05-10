@@ -99,7 +99,7 @@ Page({
       })
       .then(function(res) {
         that.setData({
-          goodsList: res.data.list,
+          goodsList: res.data.list.list,
         });
       });
   },

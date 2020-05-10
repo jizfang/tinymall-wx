@@ -129,7 +129,7 @@ Page({
         util.request(api.GoodsDetail, {
             id: that.data.id
         }).then(function (res) {
-            if (res.errno === 0) {
+            if (res.code === 200) {
                 let _specificationList = res.data.specificationList
                 // 如果仅仅存在一种货品，那么商品页面初始化时默认checked
                 if (_specificationList.length == 1) {
@@ -205,9 +205,9 @@ Page({
         util.request(api.GoodsRelated, {
             id: that.data.id
         }).then(function (res) {
-            if (res.errno === 0) {
+            if (res.code === 200) {
                 that.setData({
-                    relatedGoods: res.data.list,
+                    relatedGoods: res.data,
                 });
             }
         });

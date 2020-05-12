@@ -69,7 +69,7 @@ Page({
     util.request(api.AddressDetail, {
       id: that.data.addressId
     }).then(function(res) {
-      if (res.errno === 0) {
+      if (res.code === 200) {
         if (res.data) {
           that.setData({
             address: res.data
@@ -339,7 +339,7 @@ Page({
       addressDetail: address.addressDetail,
       isDefault: address.isDefault
     }, 'POST').then(function(res) {
-      if (res.errno === 0) {
+      if (res.code === 200) {
         //返回之前，先取出上一页对象，并设置addressId
         var pages = getCurrentPages();
         var prevPage = pages[pages.length - 2];

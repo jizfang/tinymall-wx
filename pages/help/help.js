@@ -95,7 +95,7 @@ Page({
             page: that.data.page,
             limit: that.data.limit
         }).then(function (res) {
-            if (res.errno === 0) {
+            if (res.code === 200) {
 
                 that.setData({
                     issueList: res.data.list,

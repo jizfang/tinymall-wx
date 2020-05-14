@@ -20,7 +20,7 @@
 }
 
 .m-menu .item {
-  width: 150rpx;
+  width: 170rpx;
   height: 126rpx;
 }
 

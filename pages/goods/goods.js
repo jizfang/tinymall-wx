@@ -521,17 +521,21 @@ Page({
             }, "POST")
                 .then(function (res) {
                     if (res.code == 200) {
-
+                      if (!res.data) {
+                        util.showErrorToast(res.msg);
+                      }else{
                         // 如果storage中设置了cartId，则是立即购买，否则是购物车购买
                         try {
-                            wx.setStorageSync('cartId', res.data);
-                            wx.setStorageSync('grouponRulesId', checkedGroupon.id);
-                            wx.setStorageSync('grouponLinkId', that.data.grouponLink.id);
-                            wx.navigateTo({
-                                url: '/pages/checkout/checkout'
-                            })
+                          wx.setStorageSync('cartId', res.data);
+                          wx.setStorageSync('grouponRulesId', checkedGroupon.id);
+                          wx.setStorageSync('grouponLinkId', that.data.grouponLink.id);
+                          wx.navigateTo({
+                            url: '/pages/checkout/checkout'
+                          })
                         } catch (e) {
                         }
+                      }
+                        
 
                     } else {
                         util.showErrorToast(res.errmsg);

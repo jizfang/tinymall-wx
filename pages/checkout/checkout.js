@@ -37,21 +37,25 @@ Page({
       grouponRulesId: that.data.grouponRulesId
     }).then(function(res) {
       if (res.code === 200) {
-        that.setData({
-          checkedGoodsList: res.data.checkedGoodsList,
-          checkedAddress: res.data.checkedAddress,
-          availableCouponLength: res.data.availableCouponLength,
-          actualPrice: res.data.actualPrice,
-          couponPrice: res.data.couponPrice,
-          grouponPrice: res.data.grouponPrice,
-          freightPrice: res.data.freightPrice,
-          goodsTotalPrice: res.data.goodsTotalPrice,
-          orderTotalPrice: res.data.orderTotalPrice,
-          addressId: res.data.addressId,
-          couponId: res.data.couponId,
-          userCouponId: res.data.userCouponId,
-          grouponRulesId: res.data.grouponRulesId,
-        });
+        if(!res.data){
+          util.showErrorToast(res.msg);
+        }else{
+          that.setData({
+            checkedGoodsList: res.data.checkedGoodsList,
+            checkedAddress: res.data.checkedAddress,
+            availableCouponLength: res.data.availableCouponLength,
+            actualPrice: res.data.actualPrice,
+            couponPrice: res.data.couponPrice,
+            grouponPrice: res.data.grouponPrice,
+            freightPrice: res.data.freightPrice,
+            goodsTotalPrice: res.data.goodsTotalPrice,
+            orderTotalPrice: res.data.orderTotalPrice,
+            addressId: res.data.addressId,
+            couponId: res.data.couponId,
+            userCouponId: res.data.userCouponId,
+            grouponRulesId: res.data.grouponRulesId,
+          });
+        }
       }
       wx.hideLoading();
     });

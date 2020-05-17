@@ -22,7 +22,7 @@ Page({
     util.request(api.TopicDetail, {
       id: that.data.id
     }).then(function(res) {
-      if (res.errno === 0) {
+      if (res.code === 200) {
         that.setData({
           topic: res.data.topic,
           topicGoods: res.data.goods
@@ -35,9 +35,9 @@ Page({
     util.request(api.TopicRelated, {
       id: that.data.id
     }).then(function(res) {
-      if (res.errno === 0) {
+      if (res.code === 200) {
         that.setData({
-          topicList: res.data.list
+          topicList: res.data
         });
       }
     });
@@ -51,7 +51,7 @@ Page({
       page: 1,
       limit: 5
     }).then(function(res) {
-      if (res.errno === 0) {
+      if (res.code === 200) {
         that.setData({
           commentList: res.data.list,
           commentCount: res.data.total

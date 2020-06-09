@@ -19,13 +19,12 @@ Page({
       page: that.data.page,
       limit: that.data.limit
     }).then(function(res) {
-      if (res.errno === 0) {
+      if (res.code === 200) {
         let f1 = that.data.footprintList;
         let f2 = res.data.list;
         for (let i = 0; i < f2.length; i++) {
-          f2[i].addDate = f2[i].addTime.substring(0, 10)
           let last = f1.length - 1;
-          if (last >= 0 && f1[last][0].addDate === f2[i].addDate) {
+          if (last >= 0 && f1[last][0].createTime === f2[i].createTime) {
             f1[last].push(f2[i]);
           } else {
             let tmp = [];
@@ -33,7 +32,6 @@ Page({
             f1.push(tmp);
           }
         }
-
         that.setData({
           footprintList: f1,
           totalPages: res.data.pages

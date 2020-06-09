@@ -22,7 +22,7 @@ Page({
     util.request(api.GroupOnMy, {
       showType: that.data.showType
     }).then(function(res) {
-      if (res.errno === 0) {
+      if (res.code === 200) {
         that.setData({
           orderList: res.data.list
         });

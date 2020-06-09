@@ -21,7 +21,7 @@ Page({
       page: that.data.page,
       limit: that.data.limit
     }).then(function(res) {
-      if (res.errno === 0) {
+      if (res.code === 200) {
         that.setData({
           collectList: that.data.collectList.concat(res.data.list),
           totalPages: res.data.pages

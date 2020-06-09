@@ -31,7 +31,6 @@ Page({
       pageSize: that.data.pageSize
     }).then(function(res) {
       if (res.code === 200) {
-        console.log(res.data);
         that.setData({
           orderList: that.data.orderList.concat(res.data.list),
           totalPages: res.data.pages

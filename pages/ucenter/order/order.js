@@ -24,9 +24,7 @@ Page({
   getOrderList() {
     let that = this;
     util.request(api.OrderList, {
-      condition:{
-        showType: that.data.showType
-      },
+      showType: that.data.showType,
       pageNum: that.data.pageNum,
       pageSize: that.data.pageSize
     }).then(function(res) {

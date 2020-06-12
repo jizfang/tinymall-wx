@@ -28,11 +28,14 @@ Page({
       pageNum: that.data.pageNum,
       pageSize: that.data.pageSize
     }).then(function(res) {
+      console.log(res)
       if (res.code === 200) {
         that.setData({
           orderList: that.data.orderList.concat(res.data.list),
           totalPages: res.data.pages
         });
+      }else{
+        util.showErrorToast(res.msg);
       }
     });
   },
